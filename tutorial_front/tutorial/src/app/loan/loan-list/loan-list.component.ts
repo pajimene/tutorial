@@ -66,10 +66,6 @@ export class LoanListComponent implements OnInit {
     );
   }
 
-  dateFilterChange(event: MatDatepickerInputEvent<Date>) {
-    this.filterDate = event.value;
-  }
-
   loadPage(event?: PageEvent) {
 
     let pageable : Pageable =  {
@@ -144,12 +140,12 @@ onSearch(){
     } )
 }
 
-setClientSelected(id : number)
+setIdClientSelected(id : number)
 {
   this.selectedClientId = id;
 }
 
-setGameSelected(id : number)
+setIdGameSelected(id : number)
 {
   this.selectedGameId = id;
 }

@@ -5,14 +5,14 @@
         <form>
             <mat-form-field>
                 <mat-label>Título del juego</mat-label>
-                <mat-select disableRipple [(ngModel)]="selectedGameTitle" name="title" (selectionChange)="setGameSelected($event.value.id)">
+                <mat-select disableRipple [(ngModel)]="selectedGameTitle" name="title" (selectionChange)="setIdGameSelected($event.value.id)">
                     <mat-option *ngFor="let game of games" [value]="game">{{game.title}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Nombre del cliente</mat-label>
-                <mat-select disableRipple [(ngModel)]="selectedClientName" name="name" (selectionChange)="setClientSelected($event.value.id)">
+                <mat-select disableRipple [(ngModel)]="selectedClientName" name="name" (selectionChange)="setIdClientSelected($event.value.id)">
                     <mat-option *ngFor="let client of clients" [value]="client" >{{client.name}} </mat-option>
                 </mat-select>
             </mat-form-field>  
@@ -20,7 +20,7 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Fecha</mat-label>
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <input [(ngModel)]="filterDate" name="date" matInput [matDatepicker]="picker" (dateChange)="dateFilterChange($event)">
+                    <input [(ngModel)]="filterDate" name="date" matInput [matDatepicker]="picker">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
