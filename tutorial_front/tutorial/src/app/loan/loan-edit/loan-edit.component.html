@@ -1,0 +1,51 @@
+<div class="container">
+    <h1>Crear préstamo</h1>
+
+    <form>
+        <mat-form-field>
+            <mat-label>Identificador</mat-label>
+            <input type="number" matInput placeholder="Identificador"  name="id" disabled>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre del cliente</mat-label>
+            <mat-select (selectionChange)="setClientSelected($event.value)">
+              <mat-option *ngFor="let client of clients" [value]="client">
+                {{client.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Titulo del juego</mat-label>
+            <mat-select (selectionChange)="setGameSelected($event.value)">
+              <mat-option *ngFor="let game of games" [value]="game">
+                {{game.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+        <small>Fechas inicio y fin</small>
+        <div  class="datePicker">
+            <mat-form-field appearance="fill">
+                <input matInput [matDatepicker]="picker" name="iniDate" [(ngModel)]="selectedInitialDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" class="datePicker">
+                <input matInput [matDatepicker]="picker2" name="finDate" [(ngModel)]="selectedFinalDate"> 
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+    </form>
+    <h4>{{errMessage}}</h4>
+    <div class="buttons">
+        
+        <button mat-stroked-button (click)="onClose()">Cerrar</button>
+        <button mat-flat-button color="primary" (click)="onSave()">Guardar</button>
+    </div>
+</div>

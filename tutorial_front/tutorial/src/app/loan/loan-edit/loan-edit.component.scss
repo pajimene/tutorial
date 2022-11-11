@@ -1,0 +1,29 @@
+.container {
+    min-width: 500px;
+    max-width: 800px;
+    width: 100%;
+
+    .datePicker{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom:20px;
+    }
+
+    h4{
+        text-align: center;
+        color: red;
+    }
+    .buttons {  
+    text-align: right;
+
+    button {
+        margin-left: 10px;
+    }
+    }
+}
