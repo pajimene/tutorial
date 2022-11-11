@@ -14,16 +14,30 @@ import com.ccsw.tutorial.loan.model.LoanSearchDto;
 public interface LoanService {
 
     /**
-     * Método para recuperar un listado paginado de
+     * Método para recuperar un listado paginado (filtrado o no) de
      * {@link com.ccsw.tutorial.author.model.Author}
      * 
+     * @param clientID
+     * @param gameID
+     * @param date
      * @param dto
      * @return
      */
-
     Page<Loan> find(Long clientID, Long gameID, Date date, LoanSearchDto dto);
 
+    /**
+     * Método para guardar un {@link com.ccsw.tutorial.loan.model.Loan}
+     * 
+     * @param dto
+     * @return void
+     */
     void save(LoanDto dto) throws Exception;
 
+    /**
+     * Método para borrar un {@link com.ccsw.tutorial.loan.model.Loan}
+     * 
+     * @param id
+     * @return void
+     */
     void delete(Long id);
 }

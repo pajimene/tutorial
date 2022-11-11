@@ -37,11 +37,14 @@ public class LoanController {
     BeanMapper beanMapper;
 
     /**
-     * Método para recuperar un listado paginado de
+     * Método para recuperar un listado paginado (filtrado o no) de
      * {@link com.ccsw.tutorial.loan.model.Loan}
      * 
+     * @param clientID
+     * @param gameID
+     * @param date
      * @param dto
-     * @return
+     * @return Page<Loan>
      */
 
     @RequestMapping(path = "", method = RequestMethod.POST)
@@ -54,6 +57,12 @@ public class LoanController {
         return beanMapper.mapPage(loans, LoanDto.class);
     }
 
+    /**
+     * Método para guardar un {@link com.ccsw.tutorial.loan.model.Loan}
+     * 
+     * @param dto
+     * @return void
+     */
     @RequestMapping(path = "", method = RequestMethod.PUT)
     public void save(@RequestBody LoanDto dto) throws Exception {
         try {
@@ -69,6 +78,12 @@ public class LoanController {
         }
     }
 
+    /**
+     * Método para borrar un {@link com.ccsw.tutorial.loan.model.Loan}
+     * 
+     * @param id
+     * @return void
+     */
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) {
         this.loanService.delete(id);

@@ -32,6 +32,7 @@ public class ClientController {
      * Método para recuperar un {@link com.ccsw.tutorial.client.model.Client} dado
      * su id
      * 
+     * @param id
      * @return
      */
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
